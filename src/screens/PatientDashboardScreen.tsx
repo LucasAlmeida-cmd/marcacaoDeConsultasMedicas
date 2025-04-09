@@ -18,6 +18,7 @@ type PatientDashboardScreenProps = {
 interface Appointment {
   id: string;
   patientId: string;
+  patientName: string;
   doctorId: string;
   doctorName: string;
   date: string;
@@ -125,6 +126,10 @@ const PatientDashboardScreen: React.FC = () => {
                   </StatusText>
                 </StatusBadge>
               </ListItem.Content>
+
+              <ListItem.Title style={styles.patientName as TextStyle}>
+                Paciente: {appointment.patientName}
+              </ListItem.Title>
             </AppointmentCard>
           ))
         )}
@@ -170,6 +175,11 @@ const styles = {
     fontSize: 14,
     color: theme.colors.text,
     marginTop: 4,
+  },
+  patientName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: theme.colors.text,
   },
 };
 
